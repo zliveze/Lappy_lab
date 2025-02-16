@@ -329,7 +329,7 @@ export default function RuleGenerator() {
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-900/95">
                     <div className="text-center">
                       <FontAwesomeIcon icon={faCode} className="text-4xl text-gray-600 mb-4" />
-                      <p className="text-gray-400">Nhập thông tin dự án và nhấn "Tạo Rule File"</p>
+                      <p className="text-gray-400">Nhập thông tin dự án và nhấn &quot;Tạo Rule File&quot;</p>
                     </div>
                   </div>
                 )}
