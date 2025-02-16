@@ -322,14 +322,14 @@ export default function RuleGenerator() {
                 <pre className="absolute inset-0 p-6 bg-gray-900 overflow-auto
                                font-mono text-sm leading-relaxed">
                   <code className="text-gray-300">
-                    {generatedRule || &apos;Rule file sẽ hiển thị ở đây...&apos;}
+                    {generatedRule || 'Rule file sẽ hiển thị ở đây...'}
                   </code>
                 </pre>
                 {!generatedRule && (
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-900/95">
                     <div className="text-center">
                       <FontAwesomeIcon icon={faCode} className="text-4xl text-gray-600 mb-4" />
-                      <p className="text-gray-400">Nhập thông tin dự án và nhấn &quot;Tạo Rule File&quot;</p>
+                      <p className="text-gray-400">Nhập thông tin dự án và nhấn "Tạo Rule File"</p>
                     </div>
                   </div>
                 )}
