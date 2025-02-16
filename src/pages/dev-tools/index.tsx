@@ -1,5 +1,3 @@
-import Header from '@/components/home/Header';
-import Footer from '@/components/home/Footer';
 import HeroSection from '@/components/dev-tools/HeroSection';
 import ToolCard from '@/components/dev-tools/ToolCard';
 import ExtensionCard from '@/components/dev-tools/ExtensionCard';

@@ -12,8 +12,8 @@ export default function SEO({
   title = 'Cursor ID Generator - Next Generation',
   description = 'Công cụ chỉnh sửa ID cho Cursor IDE và các IDE AI khác. Giải pháp tối ưu cho việc quản lý và sửa lỗi liên quan đến định danh trong ứng dụng Cursor IDE.',
   keywords = 'cursor ide, id generator, cursor id, windsurf ai, google play game beta, aide, ide ai, cursor id generator',
-  ogImage = '/lappy.jpg',
-  ogUrl = 'https://lappyhacking.vercel.app',
+  ogImage = 'https://i.pinimg.com/736x/ed/fc/2f/edfc2f43906239efe89ce407415a1856.jpg',
+  ogUrl = 'https://lappy-lab.vercel.app',
 }: SEOProps) {
   const fullTitle = `${title} | LappyHacking`;
 
