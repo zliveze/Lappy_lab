@@ -6,15 +6,18 @@ import ToolCard from '@/components/dev-tools/ToolCard';
 import ExtensionCard from '@/components/dev-tools/ExtensionCard';
 import { tools } from '@/components/dev-tools/ToolsData';
 import { extensions } from '@/components/dev-tools/ExtensionsData';
+import MainLayout from '@/components/layout/MainLayout';
+import SEO from '@/components/layout/SEO';
+import ExtensionsSection from '@/components/dev-tools/ExtensionsSection';
 
 export default function DevTools() {
   return (
-    <>
-      <Head>
-        <title>Công Cụ Lập Trình - Lappy Lab</title>
-        <meta name="description" content="Các công cụ lập trình tốt nhất được hỗ trợ bởi AI" />
-      </Head>
-
+    <MainLayout>
+      <SEO 
+        title="Dev Tools - Công Cụ Phát Triển"
+        description="Khám phá bộ công cụ phát triển phần mềm tối ưu cho lập trình viên. Tăng năng suất với các extension và tool được chọn lọc kỹ lưỡng."
+        keywords="dev tools, công cụ phát triển, extension vscode, cursor ide tools, lập trình viên, developer tools"
+      />
       <div className="flex flex-col min-h-screen">
         <Header />
 
@@ -76,6 +79,6 @@ export default function DevTools() {
 
         <Footer />
       </div>
-    </>
+    </MainLayout>
   );
 } 

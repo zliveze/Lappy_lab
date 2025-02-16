@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { CURSOR_RULES, WINDSURF_RULES } from './ruleTemplates';
@@ -38,10 +39,12 @@ export default function RulesSection() {
           </a>
           <br />
           <div className="flex items-center justify-center gap-4">
-            <img 
+            <Image 
               src="https://foxfio.com/wp-content/uploads/2025/01/logo-cursor.jpg"
               alt="Cursor IDE Logo"
-              className="h-12"
+              width={48}
+              height={48}
+              className="h-12 w-auto"
             />
             <a href='https://cursor.directory/' target='_blank' rel='noopener noreferrer'
               className='text-blue-600 hover:text-blue-800'

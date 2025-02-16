@@ -6,8 +6,6 @@ import HeroSection from '@/components/home/HeroSection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import LappyHacking from '@/components/home/LappyHacking';
 import IDGeneration from '@/components/home/IDGeneration';
-import { generateIds, copyToClipboard } from '@/utils/idGenerator';
-import Swal from 'sweetalert2';
 import TutoringSection from '@/components/home/TutoringSection';
 
 export default function Home() {

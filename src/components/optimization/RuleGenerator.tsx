@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import { CURSOR_RULES, WINDSURF_RULES } from './ruleTemplates';
 import toast, { Toaster } from 'react-hot-toast';
 
 const PROJECT_TEMPLATE = `# Thông Tin Dự Án

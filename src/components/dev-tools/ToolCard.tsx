@@ -1,12 +1,7 @@
-import { useState } from 'react';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faArrowRight, faDownload, faCrown, faStar, faCheck, faRobot, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faCrown, faStar, faCheck, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { tools } from './ToolsData';
-
-interface AIModel {
-  name: string;
-  isEnabled: boolean;
-}
 
 interface ModelInfo {
   name: string;
@@ -14,11 +9,6 @@ interface ModelInfo {
   credit?: string;
   beta?: boolean;
   note?: string;
-}
-
-interface ModelCategory {
-  category: string;
-  models: ModelInfo[];
 }
 
 interface Tool {
@@ -177,14 +167,14 @@ export default function ToolCard({ tool }: { tool: Tool }) {
 
       <div className="p-6 border-b border-gray-100">
         <div className="flex items-center gap-4 mb-4">
-          <div className={`w-12 h-12 rounded-lg overflow-hidden
+          <div className={`w-12 h-12 rounded-lg overflow-hidden relative
                           ${tool.highlight ? 'ring-2 ring-blue-500 ring-offset-2' : ''}`}>
-            <img 
+            <Image 
               src={tool.icon} 
               alt={tool.name} 
-              className="w-full h-full object-cover"
-              width={48}
-              height={48}
+              fill
+              className="object-cover"
+              sizes="48px"
             />
           </div>
           <div>

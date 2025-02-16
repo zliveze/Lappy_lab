@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function HeroSection() {
   return (
     <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-20">

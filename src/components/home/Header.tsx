@@ -1,14 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCode, faBook } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Developer Tools', href: '/dev-tools' },
-    { name: 'Optimization Guide', href: '/optimization' },
-  ];
-
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-gray-900/90 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -17,13 +12,16 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <div
               className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 
-                           flex items-center justify-center shadow-lg overflow-hidden"
+                           flex items-center justify-center shadow-lg overflow-hidden relative"
             >
               <Link href="/" className="w-full h-full">
-                <img
+                <Image
                   src="/lappyicon.png"
                   alt="Lappy Lab Logo"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="40px"
+                  priority
                 />
               </Link>
             </div>

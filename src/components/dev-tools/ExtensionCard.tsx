@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faRobot, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faRobot } from '@fortawesome/free-solid-svg-icons';
 
 interface ModelInfo {
   name: string;
