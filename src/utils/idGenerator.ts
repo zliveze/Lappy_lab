@@ -51,7 +51,7 @@ export const copyToClipboard = async (text: string) => {
       position: 'top-end',
       toast: true
     });
-  } catch (_err) {
+  } catch {
     await Swal.fire({
       icon: 'error',
       title: 'Không thể sao chép ID',

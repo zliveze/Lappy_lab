@@ -209,7 +209,7 @@ export default function HeroSection() {
                       <br />
                       <br />
                       <span className="font-medium text-white/80">
-                        Đặt biệt là lỗi: You've reached your trial request limit<br />
+                        Đặt biệt là lỗi: You&apos;ve reached your trial request limit<br />
                         Too many trail account on this machine
                       </span>
                     </p>

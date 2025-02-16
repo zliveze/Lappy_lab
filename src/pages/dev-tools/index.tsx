@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import HeroSection from '@/components/dev-tools/HeroSection';
@@ -8,7 +7,6 @@ import { tools } from '@/components/dev-tools/ToolsData';
 import { extensions } from '@/components/dev-tools/ExtensionsData';
 import MainLayout from '@/components/layout/MainLayout';
 import SEO from '@/components/layout/SEO';
-import ExtensionsSection from '@/components/dev-tools/ExtensionsSection';
 
 export default function DevTools() {
   return (

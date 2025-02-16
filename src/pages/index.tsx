@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import MainLayout from '@/components/layout/MainLayout';
 import SEO from '@/components/layout/SEO';
 import HeroSection from '@/components/home/HeroSection';

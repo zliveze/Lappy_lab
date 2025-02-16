@@ -3,14 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faCrown, faStar, faCheck, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { tools } from './ToolsData';
 
-interface ModelInfo {
-  name: string;
-  enabled?: boolean;
-  credit?: string;
-  beta?: boolean;
-  note?: string;
-}
-
 interface Tool {
   name: string;
   description: string;
@@ -105,9 +97,6 @@ export default function ToolCard({ tool }: { tool: Tool }) {
         return [];
     }
   };
-
-  const models = getModels(tool.name);
-  const isWindsurf = tool.name === "Windsurf AI";
 
   return (
     <div className={cardClasses}>

@@ -1,9 +1,6 @@
-import Head from 'next/head';
-import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import HeroSection from '@/components/optimization/HeroSection';
 import RulesSection from '@/components/optimization/RulesSection';
-import RuleGenerator from '@/components/optimization/RuleGenerator';
 import MainLayout from '@/components/layout/MainLayout';
 import SEO from '@/components/layout/SEO';
 
