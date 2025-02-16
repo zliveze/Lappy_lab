@@ -19,6 +19,20 @@ interface Tool {
   }>;
 }
 
+interface BaseModel {
+  name: string;
+  credit?: string;
+  beta?: boolean;
+  enabled?: boolean;
+}
+
+interface ModelCategory {
+  category: string;
+  models: BaseModel[];
+}
+
+type ModelType = string | BaseModel | ModelCategory;
+
 export default function ToolCard({ tool }: { tool: Tool }) {
   const cardClasses = `relative bg-white rounded-xl shadow-lg overflow-hidden border
                       ${tool.highlight 
@@ -131,20 +145,20 @@ export default function ToolCard({ tool }: { tool: Tool }) {
 
         <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
           <div className="grid grid-cols-1 gap-2">
-            {getModels(tool.name).map((model: any) => (
-              <div key={typeof model === 'string' ? model : model.name} 
+            {getModels(tool.name).map((model: ModelType) => (
+              <div key={typeof model === 'string' ? model : 'category' in model ? model.category : model.name} 
                    className="flex items-center gap-2 px-3 py-2 rounded-lg
                              bg-white/5 border border-white/10 backdrop-blur-sm
                              hover:bg-white/10 transition-colors duration-200">
                 <span className="text-sm font-mono text-gray-300">
-                  {typeof model === 'string' ? model : model.name}
+                  {typeof model === 'string' ? model : 'category' in model ? model.category : model.name}
                 </span>
-                {typeof model !== 'string' && model.credit && (
+                {typeof model !== 'string' && !('category' in model) && model.credit && (
                   <span className="text-xs text-gray-500 ml-auto">
                     {model.credit}
                   </span>
                 )}
-                {typeof model !== 'string' && model.beta && (
+                {typeof model !== 'string' && !('category' in model) && model.beta && (
                   <span className="text-xs bg-yellow-500/20 text-yellow-300 px-1.5 py-0.5 rounded">
                     BETA
                   </span>
