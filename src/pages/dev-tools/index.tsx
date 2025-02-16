@@ -17,7 +17,7 @@ export default function DevTools() {
         keywords="dev tools, công cụ phát triển, extension vscode, cursor ide tools, lập trình viên, developer tools"
       />
       <div className="flex flex-col min-h-screen">
-        <Header />
+       
 
         <main className="flex-1">
           {/* Hero Section */}
@@ -74,8 +74,6 @@ export default function DevTools() {
             </div>
           </section>
         </main>
-
-        <Footer />
       </div>
     </MainLayout>
   );

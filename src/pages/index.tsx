@@ -16,7 +16,6 @@ export default function Home() {
       <LappyHacking />
       <IDGeneration />
       <TutoringSection />
-      <Footer />
     </MainLayout>
   );
 }

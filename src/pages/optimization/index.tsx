@@ -14,7 +14,6 @@ export default function Optimization() {
       />
       <HeroSection />
       <RulesSection />
-      <Footer />
     </MainLayout>
   );
 } 
