@@ -7,8 +7,8 @@ export default function Document() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <link rel="icon" href="/lappyicon.png" />
-        <link rel="apple-touch-icon" href="/lappyicon.png" />
+        <link rel="icon" href="https://i.pinimg.com/736x/ed/fc/2f/edfc2f43906239efe89ce407415a1856.jpg" />
+        <link rel="apple-touch-icon" href="https://i.pinimg.com/736x/ed/fc/2f/edfc2f43906239efe89ce407415a1856.jpg" />
         
         {/* Font */}
         <link
