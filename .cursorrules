@@ -1,0 +1,113 @@
+# Instructions
+
+This rule outlines the process for building a modern Next.js landing page for the Cursor ID Generator tool.
+
+# Tools
+
+## Screenshot Verification
+For visual testing and verification, use:
+```bash
+venv/bin/python tools/screenshot_utils.py URL [--output OUTPUT] [--width WIDTH] [--height HEIGHT]
+```
+
+## LLM
+For code assistance and reviews:
+```bash
+venv/bin/python ./tools/llm_api.py --prompt "Your question" --provider "anthropic"
+```
+
+# Lessons
+
+## Project-Specific Lessons
+
+### Next.js & React
+- Use Next.js Image component with proper configuration in next.config.ts
+- Implement proper responsive design with mobile-first approach
+- Use CSS Grid and Flexbox for complex layouts
+- Implement smooth animations with CSS transitions
+- Use proper TypeScript types for components and props
+
+### Design Patterns
+- Use gradient overlays for depth and visual interest
+- Implement hover effects for interactive elements
+- Use consistent spacing and typography
+- Follow a cohesive color scheme
+- Use proper contrast ratios for accessibility
+
+### Component Structure
+- Break down complex UI into reusable components
+- Use proper component hierarchy
+- Implement proper state management
+- Use proper event handling
+- Follow consistent naming conventions
+
+### Performance
+- Optimize images using Next.js Image component
+- Implement proper lazy loading
+- Use proper caching strategies
+- Minimize bundle size
+- Use proper code splitting
+
+### Features Implemented
+- [X] Hero Section with animated background
+- [X] Features Section with icons and descriptions
+- [X] LappyHacking Section with dark theme and hover effects
+- [X] ID Generation Section with toast notifications
+- [X] Tutoring Section with auto-sliding images
+- [ ] Footer Section
+- [ ] SEO optimization
+- [ ] Analytics integration
+- [ ] Performance optimization
+- [ ] Cross-browser testing
+
+# Scratchpad
+
+**Current Task: Optimize and Polish Components**
+
+Progress:
+- [X] Implement dark theme for LappyHacking section
+- [X] Add auto-sliding functionality to Tutoring section
+- [X] Add toast notifications for ID Generation
+- [X] Improve button hover effects
+- [X] Add gradient overlays and backgrounds
+- [ ] Optimize mobile responsiveness
+- [ ] Add loading states
+- [ ] Implement error boundaries
+- [ ] Add proper TypeScript types
+- [ ] Add proper documentation
+
+Next Steps:
+1. Complete mobile optimization
+2. Add proper error handling
+3. Implement loading states
+4. Add proper TypeScript types
+5. Add proper documentation
+6. Optimize performance
+7. Add analytics
+8. Add SEO optimization
+
+Color Scheme:
+- Primary: gradient from blue-600 to purple-600
+- Secondary: white with opacity
+- Background: gradient from gray-900 to gray-800
+- Text: white, gray-400, gray-500
+- Accents: blue-400, purple-400, pink-400, green-400
+
+Typography:
+- Headings: font-bold, text-2xl/text-xl
+- Body: text-sm
+- Mono: font-mono for code/IDs
+- Line heights: relaxed for readability
+
+Spacing System:
+- Container: max-w-7xl, w-[95%]
+- Padding: p-6/p-8
+- Gaps: gap-2/gap-3/gap-4/gap-6/gap-8
+- Margins: mt-8/mt-12, mb-2/mb-4/mb-6
+
+Animations:
+- Transitions: duration-300/duration-500
+- Hover effects: scale, opacity, colors
+- Slider: auto-play with 5s interval
+- Loading: animate-spin for processing
+- Page load: animate-fadeInUp
