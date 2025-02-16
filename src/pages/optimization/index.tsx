@@ -1,4 +1,3 @@
-import Footer from '@/components/home/Footer';
 import HeroSection from '@/components/optimization/HeroSection';
 import RulesSection from '@/components/optimization/RulesSection';
 import MainLayout from '@/components/layout/MainLayout';
