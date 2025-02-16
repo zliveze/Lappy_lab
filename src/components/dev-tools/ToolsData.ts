@@ -43,8 +43,8 @@ export const tools: Tool[] = [
       "Phát hiện lỗi thông minh",
       "Premium $20/tháng không giới hạn"
     ],
-    link: "https://cursor.sh",
-    downloadLink: "https://download.cursor.sh",
+    link: "https://www.cursor.com/",
+    downloadLink: "https://www.cursor.com/",
     tags: ["Freemium", "Premium $20", "Claude 3"],
     highlight: true,
     models: [
@@ -68,7 +68,7 @@ export const tools: Tool[] = [
       "Hỗ trợ làm việc nhóm"
     ],
     link: "https://aide.dev/",
-    downloadLink: "https://aide.app/download",
+    downloadLink: "https://aide.dev/",
     tags: ["Miễn phí", "Deepseek", "V3"]
   }
 ]; 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy, faCheck, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faCopy, faCheck, faPaperPlane, faCode, faFileCode, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import toast, { Toaster } from 'react-hot-toast';
 
 const PROJECT_TEMPLATE = `# Thông Tin Dự Án
@@ -167,7 +167,19 @@ export default function RuleGenerator() {
   };
 
   return (
-    <section id="generator" className="py-16 bg-gray-50">
+    <section className="relative py-20 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0" 
+             style={{
+               backgroundImage: 'linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(to right, #1a1a1a 1px, transparent 1px)',
+               backgroundSize: '24px 24px',
+               opacity: 0.03
+             }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+      </div>
+
       <Toaster 
         position="top-right"
         toastOptions={{
@@ -176,6 +188,7 @@ export default function RuleGenerator() {
             style: {
               background: '#059669',
               color: '#fff',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
             },
           },
           error: {
@@ -183,38 +196,56 @@ export default function RuleGenerator() {
             style: {
               background: '#dc2626',
               color: '#fff',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
             },
           },
           loading: {
             style: {
               background: '#1e40af',
               color: '#fff',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
             },
           },
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Tạo Rule File
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 rounded-full text-blue-600 text-sm font-medium mb-4">
+            <FontAwesomeIcon icon={faLightbulb} className="text-blue-500" />
+            AI-Powered Generator
+          </div>
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Rule File Generator
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Nhập thông tin dự án của bạn để tạo file cấu hình tối ưu
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Tạo file cấu hình tối ưu cho dự án của bạn với công nghệ AI tiên tiến
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Input Panel */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Thông Tin Dự Án
-                </h3>
+          <div className="group bg-white rounded-2xl shadow-lg shadow-gray-200/50 overflow-hidden 
+                         hover:shadow-xl transition-all duration-300">
+            <div className="p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 
+                                flex items-center justify-center border border-blue-500/20">
+                    <FontAwesomeIcon icon={faFileCode} className="text-lg bg-gradient-to-r from-blue-500 to-purple-500 
+                                                                bg-clip-text text-transparent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Thông Tin Dự Án
+                    </h3>
+                    <p className="text-sm text-gray-500">Mô tả chi tiết dự án của bạn</p>
+                  </div>
+                </div>
                 <button
                   onClick={() => setProjectDetails(PROJECT_TEMPLATE)}
-                  className="text-sm text-blue-600 hover:text-blue-800"
+                  className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium
+                            hover:bg-blue-100 transition-colors"
                 >
                   Dùng Mẫu
                 </button>
@@ -222,51 +253,87 @@ export default function RuleGenerator() {
               <textarea
                 value={projectDetails}
                 onChange={(e) => setProjectDetails(e.target.value)}
-                className="w-full h-[500px] p-4 text-gray-800 border rounded-lg 
-                          focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full h-[450px] p-6 text-gray-800 bg-gray-50/50 rounded-xl
+                          border border-gray-100 focus:border-blue-500/20
+                          focus:ring-2 focus:ring-blue-500/20 focus:outline-none
+                          transition-all duration-300 resize-none
+                          font-mono text-sm leading-relaxed"
                 placeholder="Nhập thông tin dự án..."
               />
             </div>
-            <div className="px-6 py-4 bg-gray-50 border-t">
+            <div className="p-8 bg-gradient-to-br from-gray-50 to-white border-t border-gray-100">
               <button
                 onClick={generateRule}
                 disabled={isLoading || !projectDetails}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 
-                          bg-blue-600 text-white rounded-lg font-medium
-                          hover:bg-blue-700 disabled:opacity-50 
-                          disabled:cursor-not-allowed transition-colors"
+                className="w-full flex items-center justify-center gap-3 px-8 py-4 
+                          bg-gradient-to-r from-blue-600 to-purple-600 text-white 
+                          rounded-xl font-medium text-sm
+                          hover:from-blue-700 hover:to-purple-700
+                          disabled:opacity-50 disabled:cursor-not-allowed 
+                          transition-all duration-300 group relative overflow-hidden"
               >
-                {isLoading ? (
-                  <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
-                ) : (
-                  <FontAwesomeIcon icon={faPaperPlane} />
-                )}
-                Tạo Rule File
+                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-white/20 to-transparent 
+                               skew-x-[45deg] group-hover:-translate-x-full transition-transform duration-700" />
+                <div className="relative flex items-center gap-2">
+                  {isLoading ? (
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
+                  ) : (
+                    <FontAwesomeIcon icon={faCode} className="text-lg" />
+                  )}
+                  <span className="tracking-wide">
+                    {isLoading ? 'Đang Tạo Rule File...' : 'Tạo Rule File'}
+                  </span>
+                </div>
               </button>
             </div>
           </div>
 
           {/* Output Panel */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Rule File
-                </h3>
+          <div className="group bg-white rounded-2xl shadow-lg shadow-gray-200/50 overflow-hidden
+                         hover:shadow-xl transition-all duration-300">
+            <div className="p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 
+                                flex items-center justify-center border border-purple-500/20">
+                    <FontAwesomeIcon icon={faCode} className="text-lg bg-gradient-to-r from-purple-500 to-pink-500 
+                                                           bg-clip-text text-transparent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Rule File
+                    </h3>
+                    <p className="text-sm text-gray-500">File cấu hình được tạo tự động</p>
+                  </div>
+                </div>
                 {generatedRule && (
                   <button
                     onClick={copyToClipboard}
-                    className="text-gray-500 hover:text-gray-700"
+                    className="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg 
+                              hover:bg-purple-100 transition-colors
+                              flex items-center gap-2 text-sm font-medium"
                   >
                     <FontAwesomeIcon icon={copied ? faCheck : faCopy} />
+                    {copied ? 'Đã Sao Chép' : 'Sao Chép'}
                   </button>
                 )}
               </div>
-              <pre className="h-[500px] p-4 bg-gray-900 rounded-lg overflow-auto">
-                <code className="text-gray-300 text-sm">
-                  {generatedRule || 'Rule file sẽ hiển thị ở đây...'}
-                </code>
-              </pre>
+              <div className="relative h-[450px] rounded-xl overflow-hidden group">
+                <pre className="absolute inset-0 p-6 bg-gray-900 overflow-auto
+                               font-mono text-sm leading-relaxed">
+                  <code className="text-gray-300">
+                    {generatedRule || 'Rule file sẽ hiển thị ở đây...'}
+                  </code>
+                </pre>
+                {!generatedRule && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-900/95">
+                    <div className="text-center">
+                      <FontAwesomeIcon icon={faCode} className="text-4xl text-gray-600 mb-4" />
+                      <p className="text-gray-400">Nhập thông tin dự án và nhấn "Tạo Rule File"</p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
