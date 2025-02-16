@@ -38,7 +38,7 @@ export default function IDGeneration() {
         showConfirmButton: false,
         timer: 1500
       });
-    } catch (_error) {
+    } catch {
       await Swal.fire({
         toast: true,
         position: 'top-end',

@@ -131,17 +131,22 @@ export default function ToolCard({ tool }: { tool: Tool }) {
 
         <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
           <div className="grid grid-cols-1 gap-2">
-            {tool.models?.map((model) => (
-              <div key={model.name} 
+            {getModels(tool.name).map((model: any) => (
+              <div key={typeof model === 'string' ? model : model.name} 
                    className="flex items-center gap-2 px-3 py-2 rounded-lg
                              bg-white/5 border border-white/10 backdrop-blur-sm
                              hover:bg-white/10 transition-colors duration-200">
                 <span className="text-sm font-mono text-gray-300">
-                  {model.name}
+                  {typeof model === 'string' ? model : model.name}
                 </span>
-                {model.type && (
+                {typeof model !== 'string' && model.credit && (
                   <span className="text-xs text-gray-500 ml-auto">
-                    {model.type}
+                    {model.credit}
+                  </span>
+                )}
+                {typeof model !== 'string' && model.beta && (
+                  <span className="text-xs bg-yellow-500/20 text-yellow-300 px-1.5 py-0.5 rounded">
+                    BETA
                   </span>
                 )}
               </div>
