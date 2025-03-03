@@ -124,7 +124,6 @@ export default function LappyHacking() {
                   <span>Cursor 0.44.11</span>
                   <span>Ổn định nhất</span>
                 </a>
-                </a>
                 <a href="https://drive.google.com/file/d/14-LYMPnozH-kkbh0rDFwMZDzJlDaUyeD/view?usp=sharing" 
                    className="inline-flex items-center gap-2 bg-white/5 text-white px-6 py-2.5 rounded-lg 
                             hover:bg-white/10 transition-all duration-300 border border-white/10">
