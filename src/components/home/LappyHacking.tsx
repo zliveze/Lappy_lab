@@ -68,7 +68,7 @@ export default function LappyHacking() {
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h4 className="text-xl font-bold text-white">Lappy Lab v3</h4>
+                <h4 className="text-xl font-bold text-white">Lappy Lab v3.1</h4>
                 <span className="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20">
                   Latest
                 </span>
@@ -100,10 +100,17 @@ export default function LappyHacking() {
                     <p className="text-gray-500 text-sm">Bổ sung Cursor 0.45 hỗ trợ model tiên tiến hơn</p>
                   </div>
                 </div>
+                <div className="flex items-start gap-2">
+                  <FontAwesomeIcon icon={fa-solid fa-download} className="text-pink-400 mt-1" />
+                  <div>
+                    <h5 className="text-white text-sm font-medium">Block Update</h5>
+                    <p className="text-gray-500 text-sm">Chặn Cursor tự động Update</p>
+                  </div>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <a href="https://github.com/Letandat071/Lappy_Hacking/releases/download/v3.0.0/Lappy_Lab_3.0.exe" 
+                <a href="https://github.com/zliveze/Lappy_Hacking/releases/download/v3.1.0/Lappy_Lab_3.1-winx64.exe" 
                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 
                             text-white px-6 py-2.5 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 
                             transition-all duration-300 hover:-translate-y-0.5">
@@ -116,6 +123,14 @@ export default function LappyHacking() {
                   <FontAwesomeIcon icon={faWindows} />
                   <span>Cursor 0.44.11</span>
                   <span>Ổn định nhất</span>
+                </a>
+                </a>
+                <a href="https://drive.google.com/file/d/14-LYMPnozH-kkbh0rDFwMZDzJlDaUyeD/view?usp=sharing" 
+                   className="inline-flex items-center gap-2 bg-white/5 text-white px-6 py-2.5 rounded-lg 
+                            hover:bg-white/10 transition-all duration-300 border border-white/10">
+                  <FontAwesomeIcon icon={faWindows} />
+                  <span>Cursor 0.45.15</span>
+                  <span>Tôt nhất</span>
                 </a>
               </div>
             </div>
