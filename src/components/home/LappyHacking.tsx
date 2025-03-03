@@ -101,7 +101,7 @@ export default function LappyHacking() {
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FontAwesomeIcon icon={fa-solid fa-download} className="text-pink-400 mt-1" />
+                  <FontAwesomeIcon icon={faDownload} className="text-pink-400 mt-1" />
                   <div>
                     <h5 className="text-white text-sm font-medium">Block Update</h5>
                     <p className="text-gray-500 text-sm">Chặn Cursor tự động Update</p>
