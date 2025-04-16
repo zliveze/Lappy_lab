@@ -1,14 +1,6 @@
+import { faGithub, faFacebook, faJs, faHtml5, faCss3Alt, faWindows } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { 
-  faWindows, 
-  faGithub, 
-  faFacebook, 
-  faDiscord,
-  faJs,
-  faHtml5,
-  faCss3Alt 
-} from '@fortawesome/free-brands-svg-icons';
+import { faArrowRight, faCheckCircle, faCode, faCogs, faDownload, faInfoCircle, faLaptopCode, faMagic, faShieldAlt, faStar, faSync, faUsers } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 

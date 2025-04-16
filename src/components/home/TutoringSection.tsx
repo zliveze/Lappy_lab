@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faWindows, faApple, faLinux } from '@fortawesome/free-brands-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import Image from 'next/image';
 
 /**
@@ -10,7 +11,7 @@ import Image from 'next/image';
 interface TutorialStep {
   title: string;
   content: string | null;
-  paths?: Array<{ icon: any; label: string; path: string }>;
+  paths?: Array<{ icon: IconDefinition; label: string; path: string }>;
 }
 
 /**

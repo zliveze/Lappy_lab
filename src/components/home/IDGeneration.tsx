@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync, faShieldAlt, faKey, faClipboard, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { generateIds, copyToClipboard } from '@/utils/idGenerator';
 import { toast } from 'react-hot-toast';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 /**
  * Định nghĩa kiểu cho đối tượng chứa các ID được tạo.
@@ -53,7 +54,7 @@ export default function IDGeneration() {
     }
   };
 
-  const idItems: Array<{ label: string; value: string; icon: any; color: string }> = [
+  const idItems: Array<{ label: string; value: string; icon: IconDefinition; color: string }> = [
     { label: 'Mac Machine ID', value: ids.macMachineId, icon: faShieldAlt, color: 'text-blue-400' },
     { label: 'SQM ID', value: ids.sqmId, icon: faKey, color: 'text-purple-400' },
     { label: 'Machine ID', value: ids.machineId, icon: faShieldAlt, color: 'text-green-400' },

@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey, faCode, faRobot, faDownload } from '@fortawesome/free-solid-svg-icons';
-import { faWindows, faPython, faGithub, faFacebook, faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faPython, faGithub, faFacebook, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
-import Link from 'next/link';
 
 /**
  * LappyHacking component giới thiệu về công cụ Lappy Lab,
