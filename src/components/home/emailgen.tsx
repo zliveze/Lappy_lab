@@ -4,7 +4,7 @@ import ToastProvider from './ToastProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faRandom, faDownload, faCopy, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
-const emailgen = () => {
+const EmailGen = () => {
   const [email, setEmail] = useState('');
   const [maxSuffix, setMaxSuffix] = useState(999);
   const [includeCaseVariants, setIncludeCaseVariants] = useState(true);
@@ -407,4 +407,4 @@ const emailgen = () => {
   );
 };
 
-export default emailgen;
+export default EmailGen;
