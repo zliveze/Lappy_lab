@@ -1,141 +1,148 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKey, faCode, faRobot } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faCode, faRobot, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { faWindows, faPython, faGithub, faFacebook, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
+import Link from 'next/link';
 
+/**
+ * LappyHacking component giới thiệu về công cụ Lappy Lab,
+ * bao gồm thông tin tác giả, tính năng và liên kết tải xuống.
+ */
 export default function LappyHacking() {
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 rounded-xl p-8 mt-12 mx-auto 
-                    shadow-2xl max-w-7xl w-[95%] animate-fadeInUp relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 opacity-10">
+    <section aria-labelledby="lappyhacking-title" className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 sm:p-8 mt-12 mx-auto 
+                    shadow-xl max-w-7xl w-[95%] animate-fadeInUp relative overflow-hidden border border-white/10">
+      {/* Background Effects - Điều chỉnh màu lưới */} 
+      <div className="absolute inset-0 opacity-[0.03] z-0">
         <div className="absolute inset-0" 
              style={{
-               backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(to right, #ffffff 1px, transparent 1px)',
-               backgroundSize: '25px 25px'
+               backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px)',
+               backgroundSize: '30px 30px'
              }} />
       </div>
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/10 via-purple-500/5 to-transparent" />
+      {/* Sử dụng màu gradient từ cursorrules */} 
+      <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-600/5 via-purple-600/5 to-transparent opacity-50 z-0" />
       
-      <div className="grid md:grid-cols-3 gap-8 items-center relative z-10">
-        {/* Author Info - Left Column */}
-        <div className="flex items-center gap-6">
-          <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-purple-500/20 
+      {/* Sử dụng gap-6 cho mobile, gap-8 cho desktop */} 
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center relative z-10">
+        {/* Author Info - Căn giữa trên mobile */} 
+        <div className="flex flex-col items-center md:items-start md:flex-row md:items-center gap-4 md:gap-6">
+          {/* Ảnh tác giả */} 
+          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-purple-400/30 
                          shadow-lg shadow-purple-500/10 relative group">
             <Image 
               src="https://i.pinimg.com/736x/ed/fc/2f/edfc2f43906239efe89ce407415a1856.jpg"
-              alt="Author"
+              alt="Ảnh đại diện Nguyên Kỷ, nhà phát triển Lappy Hacking"
               width={96}
               height={96}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="(max-width: 767px) 80px, 96px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-900/40 to-transparent opacity-0 
+            {/* Hiệu ứng hover */} 
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-800/70 via-purple-800/30 to-transparent opacity-0 
                            group-hover:opacity-100 transition-opacity duration-500" />
           </div>
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-2">Lappy Hacking</h3>
-            <p className="text-gray-400 mb-4">Phát triển bởi @Nguyenky</p>
-            <div className="flex flex-wrap gap-2 lg:gap-3">
-              <span className="px-3 py-1 bg-blue-500/10 rounded-full text-sm flex items-center gap-2 text-blue-400 
-                              border border-blue-500/20">
-                <FontAwesomeIcon icon={faPython} className="text-blue-400" />
+          {/* Thông tin tác giả - Căn giữa text trên mobile */} 
+          <div className="text-center md:text-left">
+            <h3 id="lappyhacking-title" className="text-xl lg:text-2xl font-bold text-white mb-1">Lappy Hacking</h3>
+            <p className="text-sm text-gray-400 mb-3">Phát triển bởi @Nguyenky</p>
+            {/* Tag công nghệ - Căn giữa trên mobile */} 
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+              <span className="px-3 py-1 bg-blue-400/10 rounded-full text-xs font-medium flex items-center gap-1.5 text-blue-300 
+                              border border-blue-400/20">
+                <FontAwesomeIcon icon={faPython} className="text-blue-300" />
                 Python
               </span>
             </div>
-            <div className="flex gap-4 mt-4">
+            {/* Liên kết mạng xã hội - Căn giữa trên mobile */} 
+            <div className="flex justify-center md:justify-start gap-4">
               <a href="https://github.com/Letandat071" 
-                 className="text-gray-500 hover:text-white transition-colors">
-                <FontAwesomeIcon icon={faGithub} className="text-xl" />
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Github của Nguyên Kỷ"
+                 className="text-gray-500 hover:text-purple-400 transition-colors">
+                <FontAwesomeIcon icon={faGithub} className="text-lg" />
               </a>
               <a href="https://www.facebook.com/nyaamv" 
-                 className="text-gray-500 hover:text-white transition-colors">
-                <FontAwesomeIcon icon={faFacebook} className="text-xl" />
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Facebook của Nguyên Kỷ"
+                 className="text-gray-500 hover:text-blue-400 transition-colors">
+                <FontAwesomeIcon icon={faFacebook} className="text-lg" />
               </a>
               <a href="https://discord.gg/ERdN89wQEC" 
-                 className="text-gray-500 hover:text-white transition-colors">
-                <FontAwesomeIcon icon={faDiscord} className="text-xl" />
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Discord cộng đồng"
+                 className="text-gray-500 hover:text-indigo-400 transition-colors">
+                <FontAwesomeIcon icon={faDiscord} className="text-lg" />
               </a>
             </div>
           </div>
         </div>
 
-        {/* App Info - Right Columns */}
-        <div className="md:col-span-2 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-          <div className="flex items-start gap-6">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 
-                           shadow-lg flex items-center justify-center p-4 rotate-3 hover:rotate-6 transition-transform">
-              <FontAwesomeIcon icon={faKey} className="text-2xl text-white" />
+        {/* App Info - Right Columns - Đảm bảo hiển thị tốt trên mobile */} 
+        <div className="md:col-span-2 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-inner">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            {/* Icon ứng dụng */} 
+            <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 
+                           shadow-lg shadow-purple-500/15 flex items-center justify-center p-3 sm:p-4 rotate-[-3deg] hover:rotate-3 transition-transform duration-300">
+              <FontAwesomeIcon icon={faKey} className="text-xl sm:text-2xl text-white" />
             </div>
+            {/* Thông tin ứng dụng */} 
             <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
-                <h4 className="text-xl font-bold text-white">Lappy Lab v3.1</h4>
-                <span className="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
+                <h4 className="text-lg font-bold text-white">Lappy Lab v3.1</h4>
+                <span className="px-2 py-0.5 bg-green-400/10 text-green-300 text-xs font-medium rounded-full border border-green-400/20">
                   Latest
                 </span>
               </div>
-              <p className="text-gray-400 text-sm mb-4">
-                Công cụ chuyên nghiệp giúp quản lý ID cho Cursor 0.45
+              <p className="text-sm text-gray-400 mb-5">
+                Công cụ chuyên nghiệp giúp quản lý ID cho Cursor IDE (phiên bản 0.45+).
               </p>
               
-              {/* Features */}
               <div className="space-y-3 mb-6">
-                <div className="flex items-start gap-2">
-                  <FontAwesomeIcon icon={faCode} className="text-purple-400 mt-1" />
+                <div className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCode} className="text-purple-400 mt-1 w-4 h-4 flex-shrink-0" />
                   <div>
-                    <h5 className="text-white text-sm font-medium">Quản lý ID</h5>
-                    <p className="text-gray-500 text-sm">Cho phép người dùng quản lý ID của các IDE</p>
+                    <h5 className="text-gray-200 text-sm font-medium">Quản lý ID</h5>
+                    <p className="text-gray-500 text-xs leading-relaxed">Cho phép người dùng xem và quản lý ID của các IDE được hỗ trợ.</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <FontAwesomeIcon icon={faKey} className="text-blue-400 mt-1" />
+                <div className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faKey} className="text-blue-400 mt-1 w-4 h-4 flex-shrink-0" />
                   <div>
-                    <h5 className="text-white text-sm font-medium">Reset Dữ Liệu</h5>
-                    <p className="text-gray-500 text-sm">Reset dữ liệu của IDE không còn lỗi dùng nhiều account</p>
+                    <h5 className="text-gray-200 text-sm font-medium">Reset Dữ Liệu</h5>
+                    <p className="text-gray-500 text-xs leading-relaxed">Xóa sạch dữ liệu định danh của IDE, khắc phục lỗi giới hạn tài khoản.</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <FontAwesomeIcon icon={faRobot} className="text-pink-400 mt-1" />
+                <div className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faRobot} className="text-pink-400 mt-1 w-4 h-4 flex-shrink-0" />
                   <div>
-                    <h5 className="text-white text-sm font-medium">New Model Support</h5>
-                    <p className="text-gray-500 text-sm">Bổ sung Cursor 0.45 hỗ trợ model tiên tiến hơn</p>
+                    <h5 className="text-gray-200 text-sm font-medium">Hỗ trợ Model Mới</h5>
+                    <p className="text-gray-500 text-xs leading-relaxed">Tương thích với Cursor 0.45+ để sử dụng các model AI tiên tiến.</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <FontAwesomeIcon icon={faRobot} className="text-pink-400 mt-1" />
+                <div className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faRobot} className="text-green-400 mt-1 w-4 h-4 flex-shrink-0" /> 
                   <div>
-                    <h5 className="text-white text-sm font-medium">Block Update</h5>
-                    <p className="text-gray-500 text-sm">Chặn Cursor tự động Update</p>
+                    <h5 className="text-gray-200 text-sm font-medium">Chặn Cập Nhật</h5>
+                    <p className="text-gray-500 text-xs leading-relaxed">Ngăn Cursor tự động cập nhật lên phiên bản không mong muốn.</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-3">
                 <a href="https://github.com/zliveze/Lappy_Hacking/releases/download/v3.1.0/Lappy_Lab_3.1-winx64.exe" 
-                   className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 
-                            text-white px-6 py-2.5 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 
-                            transition-all duration-300 hover:-translate-y-0.5">
-                  <FontAwesomeIcon icon={faWindows} />
-                  <span>Tải xuống Lappy Lab</span>
+                   target="_blank" rel="noopener noreferrer"
+                   className="inline-flex items-center justify-center text-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 
+                            text-white px-5 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 
+                            transition-all duration-300 hover:-translate-y-0.5 text-sm font-medium w-full sm:w-auto">
+                  <FontAwesomeIcon icon={faDownload} />
+                  <span>Tải xuống Lappy Lab v3.1</span>
                 </a>
-                {/* <a href="https://drive.google.com/file/d/1WUXglDhYrhc0bgTc8wTH0h_pM2SvtpIV/view?usp=sharing" 
-                   className="inline-flex items-center gap-2 bg-white/5 text-white px-6 py-2.5 rounded-lg 
-                            hover:bg-white/10 transition-all duration-300 border border-white/10">
-                  <FontAwesomeIcon icon={faWindows} />
-                  <span>Cursor 0.44.11</span>
-                  <span>Ổn định nhất</span>
-                </a>
-                <a href="https://drive.google.com/file/d/14-LYMPnozH-kkbh0rDFwMZDzJlDaUyeD/view?usp=sharing" 
-                   className="inline-flex items-center gap-2 bg-white/5 text-white px-6 py-2.5 rounded-lg 
-                            hover:bg-white/10 transition-all duration-300 border border-white/10">
-                  <FontAwesomeIcon icon={faWindows} />
-                  <span>Cursor 0.45.15</span>
-                  <span>Tôt nhất</span>
-                </a> */}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 } 
