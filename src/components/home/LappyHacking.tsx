@@ -117,7 +117,7 @@ export default function LappyHacking() {
                   <FontAwesomeIcon icon={faWindows} />
                   <span>Tải xuống Lappy Lab</span>
                 </a>
-                <a href="https://drive.google.com/file/d/1WUXglDhYrhc0bgTc8wTH0h_pM2SvtpIV/view?usp=sharing" 
+                {/* <a href="https://drive.google.com/file/d/1WUXglDhYrhc0bgTc8wTH0h_pM2SvtpIV/view?usp=sharing" 
                    className="inline-flex items-center gap-2 bg-white/5 text-white px-6 py-2.5 rounded-lg 
                             hover:bg-white/10 transition-all duration-300 border border-white/10">
                   <FontAwesomeIcon icon={faWindows} />
@@ -130,7 +130,7 @@ export default function LappyHacking() {
                   <FontAwesomeIcon icon={faWindows} />
                   <span>Cursor 0.45.15</span>
                   <span>Tôt nhất</span>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

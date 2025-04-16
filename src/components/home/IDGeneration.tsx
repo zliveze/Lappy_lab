@@ -53,7 +53,7 @@ export default function IDGeneration() {
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 mt-12 mx-auto shadow-lg max-w-7xl w-[95%] animate-fadeInUp">
+    <div className="bg-white rounded-xl p-6 shadow-lg animate-fadeInUp h-full">
       <div className="space-y-4">
         {/* Header Section - More Impressive */}
         <div className="flex items-center justify-between mb-4">

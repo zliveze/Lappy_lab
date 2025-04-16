@@ -53,7 +53,7 @@ export default function HeroSection() {
               </div>
 
               <div className="grid grid-cols-2 gap-2 w-full">
-                <a href="https://drive.google.com/file/d/1UqgE3LlK1_pPkahKs4XSNWgG2GHUR3qj/view?usp=sharing" 
+                <a href="https://downloads.cursor.com/production/ae378be9dc2f5f1a6a1a220c6e25f9f03c8d4e19/win32/x64/user-setup/CursorUserSetup-x64-0.46.11.exe" 
                    className="w-full group relative overflow-hidden px-3 py-2.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg hover:scale-105 transition-all duration-300">
                   <div className="relative flex items-center justify-center gap-2">
                     <div className="p-1 bg-white/10 rounded-lg group-hover:scale-110 transition-transform">
@@ -84,13 +84,13 @@ export default function HeroSection() {
             <div className="w-full px-3">
               <div className="flex items-center justify-center gap-6 pt-4 border-t border-white/10">
                 <div className="text-center">
-                  <div className="text-base font-bold text-white">Version 0.42.5</div>
+                  <div className="text-base font-bold text-white">Version 0.46.11</div>
                   <div className="text-[10px] text-gray-500">Downloads</div>
                 </div>
                 <div className="w-px h-6 bg-white/10"></div>
                 <div className="text-center">
                   <div className="text-base font-bold text-white">Ổn Định</div>
-                  <div className="text-[10px] text-gray-500">Đánh giá</div>
+                  <div className="text-[10px] text-gray-500">Đánh giá tốt</div>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function HeroSection() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-3">
-                <a href="https://drive.google.com/file/d/1UqgE3LlK1_pPkahKs4XSNWgG2GHUR3qj/view?usp=sharing" 
+                <a href="https://downloads.cursor.com/production/ae378be9dc2f5f1a6a1a220c6e25f9f03c8d4e19/win32/x64/user-setup/CursorUserSetup-x64-0.46.11.exe" 
                    className="group relative overflow-hidden px-5 py-2.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-white/20 to-transparent skew-x-[45deg] group-hover:-translate-x-full transition-transform duration-700"></div>
                   <div className="relative flex items-center gap-2">
@@ -131,7 +131,7 @@ export default function HeroSection() {
                     </div>
                     <span className="inline-flex flex-col overflow-hidden text-sm font-semibold text-white h-[20px]">
                       <span className="translate-y-0 group-hover:-translate-y-full transition-transform duration-300">
-                        TẢI VỀ WINDOWS 0.42.5
+                        TẢI VỀ WINDOWS 0.46.11
                       </span>
                       <span className="absolute opacity-0 group-hover:opacity-100 translate-y-full group-hover:translate-y-0 transition-all duration-300">
                         DOWNLOAD NOW
@@ -167,7 +167,7 @@ export default function HeroSection() {
 
               <div className="hidden lg:flex items-center gap-4 mt-6 pt-6 border-t border-white/5">
                 <div>
-                  <div className="text-lg font-bold text-white">Version 0.42.5</div>
+                  <div className="text-lg font-bold text-white">Version 0.46.11</div>
                   <div className="text-xs text-gray-500">Downloads</div>
                 </div>
                 <div className="w-px h-6 bg-white/10"></div>
