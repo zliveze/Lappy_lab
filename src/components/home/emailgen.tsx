@@ -220,7 +220,7 @@ const EmailGenerator = () => {
       const total = dotCombinations * caseMultiplier * suffixCount;
       // Return Infinity if the number is too large to prevent display issues
       return total > 1_000_000_000 ? Infinity : total;
-    } catch (e) {
+    } catch {
       // Handle potential errors like bitshift on large numbers
       return Infinity;
     }
@@ -256,8 +256,8 @@ const EmailGenerator = () => {
           const newWorker = new Worker(workerUrl);
           newWorker.addEventListener('message', handleWorkerMessage);
           workerRef.current = newWorker; // Assign new worker to ref
-      } catch(e) {
-          console.error("Failed to re-initialize worker:", e);
+      } catch {
+          console.error("Failed to re-initialize worker:");
           toast.error("Không thể khởi động lại bộ xử lý.");
       }
     }
@@ -440,7 +440,7 @@ const EmailGenerator = () => {
                    </div>
                    <div className="text-sm text-gray-300 space-y-3 leading-relaxed flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-700/50">
                       <p>
-                          Công cụ này tạo ra các địa chỉ email "biến thể" từ một email gốc. Các biến thể này thường vẫn trỏ về cùng một hộp thư đến nhưng có thể hữu ích cho việc đăng ký nhiều tài khoản hoặc bộ lọc email.
+                          Công cụ này tạo ra các địa chỉ email &quot;biến thể&quot; từ một email gốc. Các biến thể này thường vẫn trỏ về cùng một hộp thư đến nhưng có thể hữu ích cho việc đăng ký nhiều tài khoản hoặc bộ lọc email.
                       </p>
                       <ul className="list-disc list-inside space-y-1.5 pl-2 text-gray-400">
                          <li><strong className="text-gray-200">Thêm dấu chấm (.):</strong> Gmail bỏ qua dấu chấm trong tên người dùng (vd: <code className="text-xs bg-white/10 px-1 rounded text-gray-200">u.s.er@gmail.com</code> → <code className="text-xs bg-white/10 px-1 rounded text-gray-200">user@gmail.com</code>).</li>

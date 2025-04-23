@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ChangeEvent, MouseEvent } from 'react';
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
 import { toast } from 'react-hot-toast';
 import ToastProvider from './ToastProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,6 +29,11 @@ const EmailGenerator = () => {
   const workerRef = useRef<Worker | null>(null);
   const estimate = useRef<number | typeof Infinity>(0); // Ước tính có thể là Infinity
 
+  // Văn bản cố định cho các label
+  const closeInfoLabel = 'Đóng thông tin';
+  const viewInfoLabel = 'Xem thông tin';
+  const closeInfoLabelButton = 'Đóng thông tin';
+
   // ... (useEffect hooks for worker and estimate - giữ nguyên logic) ...
   useEffect(() => {
     const workerUrl = new URL('/emailWorker.js', window.location.origin).toString();
@@ -46,8 +51,8 @@ const EmailGenerator = () => {
 
 
   // Thêm kiểu cho tham số event
-  const handleWorkerMessage = (e: MessageEvent<WorkerMessageData>) => {
-    const { type, progress: workerProgress, totalVariants: workerTotal, variants, error: workerError } = e.data;
+  const handleWorkerMessage = ({ data }: MessageEvent<WorkerMessageData>) => {
+    const { type, progress: workerProgress, totalVariants: workerTotal, variants, error: workerError } = data;
     
     if (type === 'progress') {
       setProgress(workerProgress ?? 0); // Fallback nếu progress là undefined
@@ -79,12 +84,12 @@ const EmailGenerator = () => {
    };
 
   const generateDotVariants = (username: string): string[] => {
-     const positions = Array.from({ length: username.length - 1 }, (_, i) => i + 1);
+     const positions = Array.from({ length: username.length - 1 }, (unused, i) => i + 1);
      const variants = new Set<string>();
      variants.add(username);
      const totalCombinations = 1 << positions.length;
      for (let mask = 1; mask < totalCombinations; mask++) {
-       const dots = positions.filter((_, i) => (mask >> i) & 1);
+       const dots = positions.filter((unused, i) => (mask >> i) & 1);
        if (dots.length === 0) continue;
        const dottedUsername = insertDots(username, dots);
        if (!dottedUsername.includes('..') && 
@@ -166,7 +171,7 @@ const EmailGenerator = () => {
        const suffixCount = maxSuffix >= 0 ? maxSuffix + 1 : 1; 
        const total = dotCombinations * caseMultiplier * suffixCount;
        return total > 1_000_000_000 ? Infinity : total;
-     } catch (e) { return Infinity; }
+     } catch { return Infinity; }
    };
 
   const formatNumber = (num: number | typeof Infinity): string => {
@@ -188,7 +193,7 @@ const EmailGenerator = () => {
        workerRef.current.terminate(); workerRef.current = null;
        const workerUrl = new URL('/emailWorker.js', window.location.origin).toString();
        try { const newWorker = new Worker(workerUrl); newWorker.addEventListener('message', handleWorkerMessage); workerRef.current = newWorker; } 
-       catch(e) { console.error("Failed to re-initialize worker:", e); toast.error("Không thể khởi động lại bộ xử lý."); }
+       catch { console.error("Failed to re-initialize worker:"); toast.error("Không thể khởi động lại bộ xử lý."); }
      }
      setIsGenerating(false); setProgress(0); setTotalVariants(0);
      toast.dismiss('generating');
@@ -209,7 +214,7 @@ const EmailGenerator = () => {
    };
 
    // Thêm kiểu cho MouseEvent nếu cần (ví dụ: onClick)
-   const handleInfoToggle = (event: MouseEvent<HTMLButtonElement>): void => {
+   const handleInfoToggle = (): void => {
       setShowInfo(!showInfo);
    };
 
@@ -220,7 +225,7 @@ const EmailGenerator = () => {
         {/* Header Section */} 
         <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/10">
            {/* ... (Header content) ... */} 
-            <div className="flex items-center gap-3"> <div className="w-10 h-10 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 flex-shrink-0"> <FontAwesomeIcon icon={faEnvelope} className="text-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent" /> </div> <div> <h2 className="text-lg font-semibold text-white">Email Variant Generator</h2> <p className="text-xs text-gray-400">Tạo biến thể email</p> </div> </div> <button onClick={handleInfoToggle} className="text-gray-500 hover:text-blue-400 transition-colors p-1 ml-2 rounded-full hover:bg-white/10 flex-shrink-0" aria-label={showInfo ? "Đóng thông tin" : "Xem thông tin"}> <FontAwesomeIcon icon={showInfo ? faTimes : faInfoCircle} /> </button>
+            <div className="flex items-center gap-3"> <div className="w-10 h-10 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 flex-shrink-0"> <FontAwesomeIcon icon={faEnvelope} className="text-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent" /> </div> <div> <h2 className="text-lg font-semibold text-white">Email Variant Generator</h2> <p className="text-xs text-gray-400">Tạo biến thể email</p> </div> </div> <button onClick={handleInfoToggle} className="text-gray-500 hover:text-blue-400 transition-colors p-1 ml-2 rounded-full hover:bg-white/10 flex-shrink-0" aria-label={showInfo ? closeInfoLabel : viewInfoLabel}> <FontAwesomeIcon icon={showInfo ? faTimes : faInfoCircle} /> </button>
         </div>
         
         {/* Input Section */} 
@@ -276,7 +281,7 @@ const EmailGenerator = () => {
                  onClick={(e) => e.stopPropagation()} 
                 >
                   {/* ... (Info Panel Content - giữ nguyên) ... */} 
-                   <div className="flex justify-between items-center mb-4 pb-3 border-b border-white/10"> <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2"> <FontAwesomeIcon icon={faInfoCircle} className="text-blue-400"/> Thông Tin </h3> <button onClick={() => setShowInfo(false)} className="text-gray-500 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10" aria-label="Đóng thông tin"> <FontAwesomeIcon icon={faTimes} /> </button> </div> <div className="text-sm text-gray-300 space-y-3 leading-relaxed flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-700/50"> <p> Công cụ này tạo ra các địa chỉ email "biến thể" từ một email gốc... </p> <ul className="list-disc list-inside space-y-1.5 pl-2 text-gray-400"> <li><strong className="text-gray-200">Thêm dấu chấm (.):</strong> ...</li> <li><strong className="text-gray-200">Chữ hoa/thường:</strong> ...</li> <li><strong className="text-gray-200">Hậu tố (+suffix):</strong> ...</li> </ul> <p> <strong className="text-yellow-400">Lưu ý:</strong> ... </p> <p> Việc tạo <strong className="text-gray-200">tất cả</strong> biến thể có thể mất nhiều thời gian... </p> </div> <button onClick={() => setShowInfo(false)} className="mt-5 w-full px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"> Đã hiểu </button>
+                   <div className="flex justify-between items-center mb-4 pb-3 border-b border-white/10"> <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2"> <FontAwesomeIcon icon={faInfoCircle} className="text-blue-400"/> Thông Tin </h3> <button onClick={() => setShowInfo(false)} className="text-gray-500 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10" aria-label={closeInfoLabelButton}> <FontAwesomeIcon icon={faTimes} /> </button> </div> <div className="text-sm text-gray-300 space-y-3 leading-relaxed flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-700/50"> <p> Công cụ này tạo ra các địa chỉ email &quot;biến thể&quot; từ một email gốc... </p> <ul className="list-disc list-inside space-y-1.5 pl-2 text-gray-400"> <li><strong className="text-gray-200">Thêm dấu chấm (.):</strong> ...</li> <li><strong className="text-gray-200">Chữ hoa/thường:</strong> ...</li> <li><strong className="text-gray-200">Hậu tố (+suffix):</strong> ...</li> </ul> <p> <strong className="text-yellow-400">Lưu ý:</strong> ... </p> <p> Việc tạo <strong className="text-gray-200">tất cả</strong> biến thể có thể mất nhiều thời gian... </p> </div> <button onClick={() => setShowInfo(false)} className="mt-5 w-full px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"> Đã hiểu </button>
                </div>
            </div>
        )}

@@ -1,6 +1,9 @@
 /* eslint-disable no-restricted-globals */
 
-// Hàm chèn dấu chấm vào các vị trí chỉ định
+// Khai báo kiểu cho self trong worker context
+declare const self: Worker;
+
+// Hàm chèn dấu chấm vào các vị trí chỉ định trong username
 const insertDots = (username: string, dotsPositions: number[]) => {
   const result = [...username];
   // Chèn từ cuối đến đầu để tránh sai lệch vị trí
@@ -277,5 +280,7 @@ function generateSuffixVariants(
   }
 }
 
-// Export để TypeScript không báo lỗi (nhưng không thực sự sử dụng khi run như worker)
-export default null; 
+// Xuất worker interface
+export default {
+  onmessage: null as ((event: MessageEvent) => void) | null
+}; 
