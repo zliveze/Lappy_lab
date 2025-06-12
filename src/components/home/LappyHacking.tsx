@@ -129,7 +129,7 @@ export default function LappyHacking() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <a href="https://github.com/zliveze/Lappy_Hacking/releases/download/v4.0.0/LappyLab_4.0_Winx64.exe" 
+                <a href="https://github.com/zliveze/Lappy_Hacking/releases/tag/v4.0.1" 
                    target="_blank" rel="noopener noreferrer"
                    className="inline-flex items-center justify-center text-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 
                             text-white px-5 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 
