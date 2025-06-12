@@ -88,7 +88,7 @@ export default function LappyHacking() {
             {/* Thông tin ứng dụng */} 
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
-                <h4 className="text-lg font-bold text-white">Lappy Lab v4.0</h4>
+                <h4 className="text-lg font-bold text-white">Lappy Lab v4.0.1</h4>
                 <span className="px-2 py-0.5 bg-green-400/10 text-green-300 text-xs font-medium rounded-full border border-green-400/20">
                   Latest
                 </span>
@@ -135,7 +135,7 @@ export default function LappyHacking() {
                             text-white px-5 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 
                             transition-all duration-300 hover:-translate-y-0.5 text-sm font-medium w-full sm:w-auto">
                   <FontAwesomeIcon icon={faDownload} />
-                  <span>Tải xuống Lappy Lab v4.0</span>
+                  <span>Tải xuống Lappy Lab v4.0.1</span>
                 </a>
               </div>
             </div>
